@@ -1,0 +1,71 @@
+<p>{{normalStyleBind}}</p>
+<h1 [style.color]="isActive? 'red':'green'"
+[style.textTransform]="isActive?'uppercase':'lowercase'">{{ngUdemyC}}</h1>
+
+<h1 [ngStyle]="{
+  color:isActive? 'red':'green',
+  textTransform: isActive? 'uppercase':'lowercase'
+}">{{ ngStyleTopic}}</h1>
+
+
+<h1>{{postArray}}</h1>
+<ul>
+  <li>{{postArray [0]}}</li>
+  <li>{{postArray [1]}}</li>
+  <li>{{postArray [2]}}</li>
+  <li>{{postArray [3]}}</li>
+  <li>{{postArray [4]}}</li>
+</ul>
+{{ topicngDirect}}
+<ul>
+  <li *ngFor="let post of postArray">{{post}}</li>
+</ul>
+
+<button (click)="addNew()">Add New Data</button>
+
+
+<div *ngIf='objArray.length>0;then withData else noData'>
+
+</div>
+
+<ng-template #noData>
+<div>
+  <p>There is no  Data to fetch ...</p>
+</div>
+</ng-template>
+
+<ng-template #withData>
+  <ul>
+    <li *ngFor="let obj of objArray; let i=index">{{i}} =>{{ obj.postTitle }}
+      <button (click)="deleteObj(i)">Delete</button>
+    </li>
+  </ul>
+</ng-template>
+{{ngSwithCase}}
+<div>
+<button (click)="changeStepBtnValue('step 01')">Step 01</button>
+<button (click)="changeStepBtnValue('step 02')">Step 02</button>
+<button (click)="changeStepBtnValue('step 03')">Step 03</button>
+</div>
+
+<div [ngSwitch]="stepForm">
+<div *ngSwitchCase="'step 01'">Step 01 Form</div>
+<div *ngSwitchCase="'step 02'">Step 02 Form</div>
+<div *ngSwitchCase="'step 03'">Step 03 Form</div>
+<div *ngSwitchDefault>Something Else</div>
+</div>
+
+<h1>{{topicClassDirective}}</h1>
+
+<h1
+[class.main]='isActive'
+[class.text-weight]="isActive"
+>Anguler Class Directives </h1>
+
+<h1
+[ngClass]="{
+  'main':isActive,
+  'text-weight':isActive
+}">
+ng Class Directives
+</h1>
